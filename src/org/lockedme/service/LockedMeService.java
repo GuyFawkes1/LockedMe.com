@@ -8,6 +8,7 @@ import org.lockedme.model.UserFile;
 public interface LockedMeService {
 	
 	public UserFile createUserFile( UserFile userfile) throws UserFileException;
+	public boolean DeleteUserFile(UserFile userfile) throws UserFileException;
 	public List<UserFile> getUserFiles() throws UserFileException;
 	
 

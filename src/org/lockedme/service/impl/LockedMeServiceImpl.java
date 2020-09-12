@@ -22,12 +22,25 @@ public class LockedMeServiceImpl implements LockedMeService {
 		return dao.createUserFile(userfile);
 	}
 	
+
+	
+	
 	private boolean isValidName(String name) {
 		boolean b=false;
 		return true;
 	}
 	
+	
+	@Override
+	public boolean DeleteUserFile(UserFile userfile) throws UserFileException {
+		return dao.deleteUserFile(userfile);
+	}
 
+	
+	
+	
+	
+	
 	@Override
 	public List<UserFile> getUserFiles() throws UserFileException {
 		// TODO Auto-generated method stub

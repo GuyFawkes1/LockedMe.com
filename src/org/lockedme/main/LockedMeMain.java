@@ -38,7 +38,9 @@ public class LockedMeMain {
 				presentation.secondaryMenu();
 				try {
 					smenuoption = Integer.parseInt(scanner.nextLine());
+					System.out.println(smenuoption);
 				} catch (NumberFormatException e) {
+					smenuoption = 100;
 				}
 				
 				switch(smenuoption) {
@@ -53,7 +55,21 @@ public class LockedMeMain {
 						}
 						break;
 					case 2:
-						System.out.println("Thank you for your interest,this option is underconstruction");
+						System.out.println("Enter file name to be deleted");
+						UserFile duf = new UserFile(scanner.nextLine());
+						try {
+							boolean status = service.DeleteUserFile(duf);
+							if(status==true) {
+								System.out.println("File Successfully Deleted");
+							}
+							else {
+								System.out.println("Specified File Not found");
+							}
+							
+						}catch(UserFileException e) {
+							System.out.println(e.getMessage());
+						}
+						
 						break;
 					case 3:
 						System.out.println("Thank you for your interest,this option is underconstruction");
@@ -81,18 +97,7 @@ public class LockedMeMain {
 		}while(mainmenuoption != 3);
 		
 		
-//		UserFile us = new UserFile("Test");
-//		
-//		
-//		
-//		try {
-//			UserFile returned = service.createUserFile(us);
-//			System.out.println(returned);
-//		} catch (UserFileException e) {
-//			System.out.println(e.getMessage());
-//		}
-//			
-		
+	
 	}
 
 
