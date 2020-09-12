@@ -31,6 +31,10 @@ public class LockedMeMain {
 			
 			switch(mainmenuoption) {
 			case 1:
+				try{service.getUserFiles();
+				}catch(UserFileException e) {
+					System.out.println(e.getMessage());
+				}
 				System.out.println("Thank you for your interest,this option is underconstruction");
 				break;
 			case 2:

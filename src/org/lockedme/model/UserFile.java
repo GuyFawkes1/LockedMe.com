@@ -1,5 +1,9 @@
 package org.lockedme.model;
 
+import java.text.Collator;
+import java.util.Comparator;
+import java.util.Locale;
+
 public class UserFile {
 	
 	private int id;
@@ -46,4 +50,8 @@ public class UserFile {
 		return true;
 	}
 	
+	
+	
 }
+
+

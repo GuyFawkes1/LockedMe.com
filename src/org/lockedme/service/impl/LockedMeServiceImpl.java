@@ -1,6 +1,10 @@
 package org.lockedme.service.impl;
 
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import org.lockedme.dao.LockedMeDAO;
 import org.lockedme.dao.impl.LockedMeDAOImpl;
@@ -42,9 +46,14 @@ public class LockedMeServiceImpl implements LockedMeService {
 	
 	
 	@Override
-	public List<UserFile> getUserFiles() throws UserFileException {
+	public void getUserFiles() throws UserFileException {
 		// TODO Auto-generated method stub
-		return null;
+		List<UserFile> arrayUserFilesByName = dao.getUserFilesByName();
+		Collections.sort(arrayUserFilesByName, new SortByName());
+		for(UserFile uf: arrayUserFilesByName ) {
+			System.out.println(uf);
+		}
+		return;
 	}
 
 
@@ -59,4 +68,20 @@ public class LockedMeServiceImpl implements LockedMeService {
 	
 	
 
+}
+
+class SortByName implements Comparator<UserFile>{
+
+	private static final Locale LOCALE = Locale.US;
+	
+	@Override
+	public int compare(UserFile arg0, UserFile arg1) {
+		// TODO Auto-generated method stub
+		Collator collater = Collator.getInstance(LOCALE);	
+		return -1*collater.compare(arg1.name, arg0.name);
+	}
+	
+	
+	
+	
 }
