@@ -32,7 +32,7 @@ public class LockedMeServiceImpl implements LockedMeService {
 	
 	
 	@Override
-	public boolean DeleteUserFile(UserFile userfile) throws UserFileException {
+	public boolean deleteUserFile(UserFile userfile) throws UserFileException {
 		return dao.deleteUserFile(userfile);
 	}
 
@@ -45,6 +45,16 @@ public class LockedMeServiceImpl implements LockedMeService {
 	public List<UserFile> getUserFiles() throws UserFileException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	@Override
+	public boolean searchUserFile(UserFile userfile) throws UserFileException {
+		
+		
+		return dao.searchUserFile(userfile);
 	}
 	
 	

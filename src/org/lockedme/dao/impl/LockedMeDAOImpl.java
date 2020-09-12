@@ -28,9 +28,21 @@ public class LockedMeDAOImpl implements LockedMeDAO {
 //		    System.out.println(s);
 //		}
 //		return flag;
-		return userFileSet.remove(userfile);
+		if(userFileSet.remove(userfile)) {
+			return true;
+		}else {
+			throw new UserFileException("No File with name - "+userfile.name+" exists in the directory");
+		}
 	}
 	
+	public boolean searchUserFile(UserFile userfile) throws UserFileException{
+		
+		if(userFileSet.contains(userfile)) {
+			return true;
+		}else {
+			throw new UserFileException("No File with name - "+userfile.name+" exists in the directory");
+		}
+	}
 	
 	
 	

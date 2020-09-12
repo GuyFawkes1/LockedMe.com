@@ -10,6 +10,6 @@ public interface LockedMeDAO {
 	
 	public UserFile[] getUserFilesByName() throws UserFileException;
 	
-	
+	public boolean searchUserFile(UserFile userfile) throws UserFileException;
 	
 }

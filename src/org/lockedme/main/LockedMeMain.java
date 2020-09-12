@@ -58,13 +58,8 @@ public class LockedMeMain {
 						System.out.println("Enter file name to be deleted");
 						UserFile duf = new UserFile(scanner.nextLine());
 						try {
-							boolean status = service.DeleteUserFile(duf);
-							if(status==true) {
-								System.out.println("File Successfully Deleted");
-							}
-							else {
-								System.out.println("Specified File Not found");
-							}
+							service.deleteUserFile(duf);
+							System.out.println("File Successfully Deleted");
 							
 						}catch(UserFileException e) {
 							System.out.println(e.getMessage());
@@ -72,7 +67,17 @@ public class LockedMeMain {
 						
 						break;
 					case 3:
-						System.out.println("Thank you for your interest,this option is underconstruction");
+						System.out.println("Enter file name to search");
+						UserFile suf = new UserFile(scanner.nextLine());
+						
+						try {
+							service.searchUserFile(suf);
+							System.out.println("File exists in the directory");
+							
+						}catch(UserFileException e) {
+							System.out.println(e.getMessage());
+						}
+						
 						break;
 					case 4:
 						System.out.println("You will be redirected to the main menu.......");
