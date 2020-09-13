@@ -16,7 +16,7 @@ public class UserFile {
 	}
 	@Override
 	public String toString() {
-		return "UserFile [name=" + name + "]";
+		return this.name;
 	}
 	public UserFile(String name) {
 		super();

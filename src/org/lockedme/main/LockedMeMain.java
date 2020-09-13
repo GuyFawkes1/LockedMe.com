@@ -27,6 +27,7 @@ public class LockedMeMain {
 				mainmenuoption = Integer.parseInt(scanner.nextLine());
 			} catch (NumberFormatException e) {
 				//System.out.println("I detected error");
+				mainmenuoption=100;
 			}
 			
 			switch(mainmenuoption) {
@@ -35,7 +36,6 @@ public class LockedMeMain {
 				}catch(UserFileException e) {
 					System.out.println(e.getMessage());
 				}
-				System.out.println("Thank you for your interest,this option is underconstruction");
 				break;
 			case 2:
 				do {
@@ -50,7 +50,8 @@ public class LockedMeMain {
 				switch(smenuoption) {
 					case 1:
 						System.out.println("Enter the file name to be be created");
-						UserFile uf = new UserFile(scanner.nextLine());
+						System.out.println("A valid filename cannot contain any of these symbols ^*&%#");
+						UserFile uf = new UserFile(scanner.nextLine().trim());
 						try {
 							uf = service.createUserFile(uf);
 							System.out.println("File created with details " + uf);
@@ -60,7 +61,7 @@ public class LockedMeMain {
 						break;
 					case 2:
 						System.out.println("Enter file name to be deleted");
-						UserFile duf = new UserFile(scanner.nextLine());
+						UserFile duf = new UserFile(scanner.nextLine().trim());
 						try {
 							service.deleteUserFile(duf);
 							System.out.println("File Successfully Deleted");
@@ -72,7 +73,7 @@ public class LockedMeMain {
 						break;
 					case 3:
 						System.out.println("Enter file name to search");
-						UserFile suf = new UserFile(scanner.nextLine());
+						UserFile suf = new UserFile(scanner.nextLine().trim());
 						
 						try {
 							service.searchUserFile(suf);

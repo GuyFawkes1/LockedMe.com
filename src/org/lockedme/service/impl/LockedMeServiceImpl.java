@@ -20,18 +20,21 @@ public class LockedMeServiceImpl implements LockedMeService {
 	public UserFile createUserFile(UserFile userfile) throws UserFileException {
 		
 		// Place validation Code
+		//userfile.setName(userfile.getName().trim());
 		if(!isValidName(userfile.getName())) {
 			throw new UserFileException("Entered Name"+ userfile.getName()+"is invalid");
 		}
 		return dao.createUserFile(userfile);
 	}
 	
-
-	
 	
 	private boolean isValidName(String name) {
+		String regex = "^[^*&%#]+$";
 		boolean b=false;
-		return true;
+		if(name.matches(regex)) {
+			b=true;
+		}
+		return b;
 	}
 	
 	
@@ -39,10 +42,6 @@ public class LockedMeServiceImpl implements LockedMeService {
 	public boolean deleteUserFile(UserFile userfile) throws UserFileException {
 		return dao.deleteUserFile(userfile);
 	}
-
-	
-	
-	
 	
 	
 	@Override
@@ -65,10 +64,8 @@ public class LockedMeServiceImpl implements LockedMeService {
 		
 		return dao.searchUserFile(userfile);
 	}
-	
-	
-
 }
+
 
 class SortByName implements Comparator<UserFile>{
 

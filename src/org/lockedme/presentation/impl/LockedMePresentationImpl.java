@@ -7,7 +7,7 @@ public class LockedMePresentationImpl implements LockedMePresentation  {
 	@Override
 	public void mainMenu() {
 		// TODO Auto-generated method stub
-		System.out.println("\n\n");
+		System.out.println("\n");
 		System.out.println("Main Menu - LockedMe.com" );
 		System.out.println("==================================");
 		System.out.println("Please select one of the following options\n");
@@ -20,7 +20,7 @@ public class LockedMePresentationImpl implements LockedMePresentation  {
 	@Override
 	public void secondaryMenu() {
 		// TODO Auto-generated method stub
-		System.out.println("\n\n");
+		System.out.println("\n");
 		System.out.println("Please select one of the following options");
 		System.out.println("1) Add a file");
 		System.out.println("2) Delete a file");

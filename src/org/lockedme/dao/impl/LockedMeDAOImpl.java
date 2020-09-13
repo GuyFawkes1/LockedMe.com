@@ -23,7 +23,7 @@ public class LockedMeDAOImpl implements LockedMeDAO {
 	@Override
 	public List<UserFile> getUserFilesByName() throws UserFileException {
 		
-		if (userFileSet.size()==0) throw new UserFileException("Currently there are no files in the directory. You will see them here, when you add some");
+		if (userFileSet.size()==0) throw new UserFileException("Currently there are no files in the directory.\nYou will see them here, when you add some");
 		List<UserFile> listOfUserFiles = new ArrayList<>();
 	
 		for(UserFile uf: userFileSet) {
