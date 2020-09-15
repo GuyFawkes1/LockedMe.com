@@ -2,7 +2,7 @@
 
 ## Specification document
 
-The product specification document can be found ![here](https://docs.google.com/document/d/1mBVED5D3msPQKvsu_vls6XgpYLbqCqTvE0Lmmt67OXY/edit?usp=sharing). It outlines the product specification, the planning phases, implementational details etc.
+The product specification document can be found [here](https://docs.google.com/document/d/1mBVED5D3msPQKvsu_vls6XgpYLbqCqTvE0Lmmt67OXY/edit?usp=sharing). It outlines the product specification, the planning phases, implementational details etc.
 
 
 ## Installation process
