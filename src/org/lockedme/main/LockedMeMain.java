@@ -1,5 +1,6 @@
 package org.lockedme.main;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.lockedme.exception.UserFileException;
@@ -26,13 +27,17 @@ public class LockedMeMain {
 			try {
 				mainmenuoption = Integer.parseInt(scanner.nextLine());
 			} catch (NumberFormatException e) {
-				//System.out.println("I detected error");
 				mainmenuoption=100;
 			}
 			
 			switch(mainmenuoption) {
 			case 1:
-				try{service.getUserFiles();
+				try{
+					List<UserFile> userFilesByName = service.getUserFiles();
+					System.out.println("The following is the list of files currently in the system (sorted alphabetically)");
+					for(UserFile uf: userFilesByName ) {
+						System.out.println(uf);
+					}
 				}catch(UserFileException e) {
 					System.out.println(e.getMessage());
 				}
@@ -42,7 +47,7 @@ public class LockedMeMain {
 				presentation.secondaryMenu();
 				try {
 					smenuoption = Integer.parseInt(scanner.nextLine());
-					System.out.println(smenuoption);
+					
 				} catch (NumberFormatException e) {
 					smenuoption = 100;
 				}
@@ -54,7 +59,7 @@ public class LockedMeMain {
 						UserFile uf = new UserFile(scanner.nextLine().trim());
 						try {
 							uf = service.createUserFile(uf);
-							System.out.println("File created with details " + uf);
+							System.out.println("File created with name " + uf);
 						}catch(UserFileException e) {
 							System.out.println(e.getMessage());
 						}
@@ -96,6 +101,7 @@ public class LockedMeMain {
 				break;
 			case 3:
 				System.out.println("Thank you for using LockedMe.com prototype");
+				System.out.println("Exiting the application.....");
 				break;
 			
 			default:

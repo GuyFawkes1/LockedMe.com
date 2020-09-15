@@ -1,12 +1,8 @@
 package org.lockedme.model;
 
-import java.text.Collator;
-import java.util.Comparator;
-import java.util.Locale;
-
 public class UserFile {
 	
-	private int id;
+
 	public String name;
 	public String getName() {
 		return name;
@@ -24,7 +20,7 @@ public class UserFile {
 	}
 	public UserFile() {
 		super();
-		this.name = name;
+//		this.name = name;
 	}
 	@Override
 	public int hashCode() {

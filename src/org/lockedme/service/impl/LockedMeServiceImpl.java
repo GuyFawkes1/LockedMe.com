@@ -19,8 +19,6 @@ public class LockedMeServiceImpl implements LockedMeService {
 	@Override
 	public UserFile createUserFile(UserFile userfile) throws UserFileException {
 		
-		// Place validation Code
-		//userfile.setName(userfile.getName().trim());
 		if(!isValidName(userfile.getName())) {
 			throw new UserFileException("Entered Name"+ userfile.getName()+"is invalid");
 		}
@@ -45,14 +43,12 @@ public class LockedMeServiceImpl implements LockedMeService {
 	
 	
 	@Override
-	public void getUserFiles() throws UserFileException {
+	public List<UserFile> getUserFiles() throws UserFileException {
 		// TODO Auto-generated method stub
-		List<UserFile> arrayUserFilesByName = dao.getUserFilesByName();
-		Collections.sort(arrayUserFilesByName, new SortByName());
-		for(UserFile uf: arrayUserFilesByName ) {
-			System.out.println(uf);
-		}
-		return;
+		List<UserFile> userFilesByName = dao.getUserFilesByName();
+		Collections.sort(userFilesByName, new SortByName());
+		
+		return userFilesByName;
 	}
 
 
